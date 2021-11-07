@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         });
 
+
+
+
         signup.setOnClickListener(view -> {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -54,4 +57,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }

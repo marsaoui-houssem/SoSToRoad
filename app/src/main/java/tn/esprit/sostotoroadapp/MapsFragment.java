@@ -74,4 +74,5 @@ SupportMapFragment supportMapFragment= (SupportMapFragment)
             mapFragment.getMapAsync(callback);
         }
     }
+
 }

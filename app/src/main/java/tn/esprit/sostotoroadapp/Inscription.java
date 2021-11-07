@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import tn.esprit.sostotoroadapp.database.AppDataBase;
+import tn.esprit.sostotoroadapp.model.User;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Inscription#newInstance} factory method to
@@ -66,17 +69,37 @@ public class Inscription extends Fragment {
     private EditText textPostalAddress;
     private EditText textPhone;
     private EditText textPassword;
+
+    private AppDataBase dataBase;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_inscription, container, false);
+        ok=view.findViewById(R.id.ok);
+        annuler=view.findViewById(R.id.annuler);
         textViewInscrip=view.findViewById(R.id.textViewInscrip);
         textPersonName =view.findViewById(R.id.textPersonName);
         textEmailAddress =view.findViewById(R.id.textEmailAddress);
         textPostalAddress = view.findViewById(R.id.textPostalAddress);
         textPhone = view.findViewById(R.id.textPhone);
         textPassword= view.findViewById(R.id.textPassword);
+        dataBase = AppDataBase.getAppDataBAse(getActivity().getApplicationContext());
+        ok.setOnClickListener(view1 -> {
+            User user = new User();
+            user.setName(textPersonName.getText().toString());
+            user.setEmail(textEmailAddress.getText().toString());
+            user.setAdresse(textPostalAddress.getText().toString());
+            user.setPhone(textPhone.getText().toString());
+            user.setPassword(textPassword.getText().toString());
+            dataBase.userDAO().insertUser(user);
+            getActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frameLayout, new Login())
+                    .commit();
+
+        });
         return view;
     }
 }
