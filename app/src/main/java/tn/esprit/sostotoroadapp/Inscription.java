@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +58,25 @@ public class Inscription extends Fragment {
         }
     }
 
+    private TextView textViewInscrip;
+    private Button ok;
+    private Button annuler;
+    private EditText textPersonName;
+    private EditText textEmailAddress;
+    private EditText textPostalAddress;
+    private EditText textPhone;
+    private EditText textPassword;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inscription, container, false);
+        View view = inflater.inflate(R.layout.fragment_inscription, container, false);
+        textViewInscrip=view.findViewById(R.id.textViewInscrip);
+        textPersonName =view.findViewById(R.id.textPersonName);
+        textEmailAddress =view.findViewById(R.id.textEmailAddress);
+        textPostalAddress = view.findViewById(R.id.textPostalAddress);
+        textPhone = view.findViewById(R.id.textPhone);
+        textPassword= view.findViewById(R.id.textPassword);
+        return view;
     }
 }
