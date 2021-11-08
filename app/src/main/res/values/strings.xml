@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">SoStoToRoadApp</string>
+    <string-array name="userType">
+        <item>user</item>
+        <item>admin</item>
+    </string-array>
+    <string name="textview">TextView</string>
+    <string name="prix">prix</string>
+    <string name="sos_demande">SoS Demande</string>
     <!-- TODO: Remove or change this placeholder text -->
     <!-- <string name="hello_blank_fragment">Hello blank fragment</string>-->
 </resources>

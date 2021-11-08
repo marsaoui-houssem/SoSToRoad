@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import tn.esprit.sostotoroadapp.database.AppDataBase;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
@@ -60,21 +62,22 @@ public class ProfileFragment extends Fragment {
 
 
     private TextView textViewprofil;
-    private Button listMbtn;
     private Button changepsdbtn;
-    private EditText textpn;
-    private EditText textpe;
-    private EditText textpp;
-    private EditText nomp;
-    private EditText emailp;
-    private EditText phonep;
+    private TextView textpn;
+    private TextView textpe;
+    private TextView textpp;
+    private TextView nomp;
+    private TextView emailp;
+    private TextView phonep;
+    private AppDataBase dataBase;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view  = inflater.inflate(R.layout.fragment_profile, container, false);
+
         textViewprofil=view.findViewById(R.id.textViewprofil);
-        listMbtn=view.findViewById(R.id.listMbtn);
         changepsdbtn=view.findViewById(R.id.changepsdbtn);
         textpn=view.findViewById(R.id.textpn);
         textpe=view.findViewById(R.id.textpe);
@@ -83,6 +86,15 @@ public class ProfileFragment extends Fragment {
         emailp=view.findViewById(R.id.emailp);
         phonep=view.findViewById(R.id.phonep);
 
+
+
+        nomp.setText("ali");
+        emailp.setText("ali@gmail.com");
+        phonep.setText("555555");
+     /*   changepsdbtn.setOnClickListener(view1 ->
+                dataBase.userDAO().update(1)
+        );
+        */
 
         return view;
     }

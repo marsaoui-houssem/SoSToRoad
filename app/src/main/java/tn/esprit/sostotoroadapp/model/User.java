@@ -21,19 +21,20 @@ public class User {
 
     @ColumnInfo(name = "flagt")
     private boolean flag;
-
+    @ColumnInfo(name = "statut")
+    private boolean statut;
     public User() {
     }
 
-    public User(int id, String name, String email, String adresse, String phone, String password, boolean flag) {
+    public User(int id, String name, String email, String adresse, String phone, String password, boolean flag,boolean statut) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.adresse = adresse;
         this.phone = phone;
         this.password = password;
-
         this.flag = flag;
+        this.statut = statut;
     }
 
     public int getId() {
@@ -91,6 +92,14 @@ public class User {
 
     public void setFlag(boolean flag) {
         this.flag = flag;
+    }
+
+    public boolean isStatut() {
+        return statut;
+    }
+
+    public void setStatut(boolean statut) {
+        this.statut = statut;
     }
 
     @Override

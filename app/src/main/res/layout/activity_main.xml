@@ -34,12 +34,11 @@
             android:layout_width="78dp"
             android:layout_height="59dp"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.526"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            app:srcCompat="@drawable/logo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
@@ -47,6 +46,7 @@
         android:layout_width="409dp"
         android:layout_height="0dp"
         android:layout_marginBottom="80dp"
+        android:background="@drawable/sos3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

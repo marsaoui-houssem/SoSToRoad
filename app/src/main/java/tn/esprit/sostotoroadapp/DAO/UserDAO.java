@@ -22,6 +22,8 @@ public interface UserDAO {
     List<User> getAllfave();
     @Query("UPDATE user_table SET flagt = 1 WHERE id = :id")
     void updatefave(int id);
-
-
+    @Query("UPDATE user_table SET statut = 1 WHERE id = :id")
+    void updatestat(int id);
+    @Query("SELECT * FROM user_table where statut = 1")
+    List<User> getAllvalid();
 }

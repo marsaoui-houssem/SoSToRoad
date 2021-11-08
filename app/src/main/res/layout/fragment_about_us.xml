@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFDBDB"
     tools:context=".AboutUs">
 
     <LinearLayout
@@ -35,7 +36,7 @@
             android:id="@+id/imageViewABS"
             android:layout_width="match_parent"
             android:layout_height="201dp"
-            android:src="@android:drawable/btn_star_big_on" />
+            app:srcCompat="@drawable/sos2" />
 
         <ScrollView
             android:id="@+id/scrollViewABS"
@@ -46,7 +47,7 @@
                 android:id="@+id/textAboutUs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="entrer votre text *************************************************************************************************"
+                android:text="we are a new help and rescue center for those who have trouble on the road , we cover the national level in the span of two hours and hope to expand. you can reach us on facebook SosToroad or call us on 22111333 or 22444777."
                 android:textSize="24sp" />
         </ScrollView>
 

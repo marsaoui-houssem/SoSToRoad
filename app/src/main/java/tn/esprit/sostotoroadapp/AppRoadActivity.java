@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 public class AppRoadActivity extends AppCompatActivity {
     private Button profilbtn ;
     private Button mapbtnapp ;
+    private Button listSoS ;
+    private Button missionbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +21,8 @@ public class AppRoadActivity extends AppCompatActivity {
 
         profilbtn = findViewById(R.id.profilbtn);
         mapbtnapp= findViewById(R.id.mapbtnapp);
-
+        listSoS= findViewById(R.id.listSoS);
+        missionbtn= findViewById(R.id.missionbtn);
 
         profilbtn.setOnClickListener(view -> {
             getSupportFragmentManager()
@@ -33,6 +37,16 @@ public class AppRoadActivity extends AppCompatActivity {
                     .beginTransaction()
                     .replace(R.id.frameLayout2, fragment)
                     .commit();
+        });
+
+        listSoS.setOnClickListener(view1 -> {
+            Intent intent = new Intent(this,listSoSActivity.class);
+            startActivity(intent);
+        });
+
+        missionbtn.setOnClickListener(view1 -> {
+            Intent intent = new Intent(this,ListMissionActivity.class);
+            startActivity(intent);
         });
     }
 }

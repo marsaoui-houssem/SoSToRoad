@@ -8,11 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import tn.esprit.sostotoroadapp.Adapter.ConnectedUser;
 import tn.esprit.sostotoroadapp.database.AppDataBase;
 import tn.esprit.sostotoroadapp.model.User;
 
@@ -68,6 +71,8 @@ public class Login extends Fragment {
     private EditText pwdf;
     private AppDataBase dataBase;
     private User user;
+    private Spinner spinner;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -75,17 +80,27 @@ public class Login extends Fragment {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         dataBase = AppDataBase.getAppDataBAse(getActivity().getApplicationContext());
         loginf =view.findViewById(R.id.loginName);
+        spinner= view.findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adaptar = ArrayAdapter.createFromResource(view.getContext() , R.array.userType,R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(adaptar);
+
+
         pwdf =view.findViewById(R.id.loginPassword);
         pageLogin = view.findViewById(R.id.loginPage);
         btnlogin=view.findViewById(R.id.buttonLogin);
         btnlogin.setOnClickListener(view1 -> {
-            if(dataBase.userDAO().LoginUser(loginf.getText().toString(),pwdf.getText().toString())!= null){
+            String item=spinner.getSelectedItem().toString();
+            if (loginf.getText().toString().equals("admin")&&pwdf.getText().toString().equals("123")&&item.equals("admin")){
+                Intent intent = new Intent(getActivity(), AdminActivity.class);
+                startActivity(intent);
+            }
+            if(dataBase.userDAO().LoginUser(loginf.getText().toString(),pwdf.getText().toString())!= null ){
                 user =dataBase.userDAO().LoginUser(loginf.getText().toString(),pwdf.getText().toString());
             }
-
-            if (user != null){
-                Intent intent = new Intent(getActivity(),AppRoadActivity.class);
+            if (user != null) {
+                Intent intent = new Intent(getActivity(), AppRoadActivity.class);
                 startActivity(intent);
+
             }else
             {
                 Toast.makeText(getActivity().getApplicationContext(),"Errooooooor",Toast.LENGTH_LONG).show();
